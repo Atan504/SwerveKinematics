@@ -1,5 +1,7 @@
 package common;
 
+import java.awt.*;
+
 public class Vector {//all the code is self-explanatory
     private double direction,magnitude;
     private Point pos;
@@ -44,6 +46,9 @@ public class Vector {//all the code is self-explanatory
 //        return new Vector(vec1.getPos(),
 //                new Point(vec1.calcHeadingPoint().getX()+vec2.calcHeadingPoint().getX()
 //                        ,vec1.calcHeadingPoint().getY()+vec2.calcHeadingPoint().getY()));
+    }
+    public void paint(Graphics g){
+        g.drawLine((int) pos.getX(), (int) pos.getY(), (int) calcHeadingPoint().getX(), (int) calcHeadingPoint().getY());
     }
 
     public double getDirection() {return direction;}
