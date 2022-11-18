@@ -3,16 +3,18 @@ package OpenGL;
 import Swerve.Module;
 import Swerve.SK;
 import Swerve.SK.MLoc;
+
 import com.jogamp.opengl.util.FPSAnimator;
 import common.Point;
 import common.Vector;
+
 
 import javax.media.opengl.*;
 import javax.media.opengl.awt.GLCanvas;
 import javax.swing.*;
 
 public class FrameSK implements GLEventListener {
-    public static final JFrame frame = new JFrame("Swerve Kinematics Demo - By Atan");
+    public static final JFrame frame = new JFrame("Swerve Kinematics Demo");
     public static GLCanvas gc;
     @Override
     public void init(GLAutoDrawable glAutoDrawable) {
@@ -23,6 +25,11 @@ public class FrameSK implements GLEventListener {
     public void dispose(GLAutoDrawable glAutoDrawable) {
 
     }
+
+    public static final double direction = 90;
+    public static final double magnitude = 0.3; //needs to be number from 0 to 1
+    public static final double angularVelocity = 45;
+
     @Override
     public void display(GLAutoDrawable glAutoDrawable) {
         //setup
@@ -44,11 +51,11 @@ public class FrameSK implements GLEventListener {
         Module br = new Module(0.1,-0.1,MLoc.Back_Right);
         Module bl = new Module(-0.1,-0.1,MLoc.Back_Left);
 
-        SK chasis = new SK();
+        SK chassis = new SK();
 
-        chasis.setTransform(new Vector(90,0.1));
-        chasis.setAngleVelocity(90);
-        chasis.Update();
+        chassis.setTransform(new Vector(direction,magnitude));
+        chassis.setAngleVelocity(angularVelocity);
+        chassis.Update();
 
         //RED cassis
         gl.glColor3f( 1.0f,0.0f,0.0f );
@@ -77,8 +84,8 @@ public class FrameSK implements GLEventListener {
 
 
         //Dbug br
-        Vector tran = chasis.getTransform();
-        Vector ang = new Vector(MLoc.Back_Right.getValue(),chasis.getAngleVelocity()/ 800.0,br.getPos());
+        Vector tran = chassis.getTransform();
+        Vector ang = new Vector(MLoc.Back_Right.getValue(),chassis.getAngleVelocity()/ 800.0,br.getPos());
         gl.glColor3f( 0.0f,0.0f,1.0f);
         tran.setPos(ang.calcHeadingPoint());
         gl.glVertex2d(tran.getPos().getX(),tran.getPos().getY());
@@ -91,8 +98,35 @@ public class FrameSK implements GLEventListener {
 
 
 
+        //3 sec
+        //trajectory painting
+        double angle = angularVelocity * 5;
+        angle = 30;
+        Vector trajectory = new Vector(direction, magnitude, chassis.getPos());
+
+        gl.glColor3f(0.9f,0f,0.8f);
+        gl.glVertex2d(0,0);
+        gl.glVertex2d(trajectory.calcHeadingPoint().getX(),trajectory.calcHeadingPoint().getY());
+
+        //red chassis
+        gl.glColor3f( 1.0f,0.0f,0.0f );
+        gl.glVertex2d(fr.getPos().getX() + trajectory.calcHeadingPoint().getX(),fr.getPos().getY() + trajectory.calcHeadingPoint().getY());
+        gl.glVertex2d(fl.getPos().getX() + trajectory.calcHeadingPoint().getX(),fl.getPos().getY() + trajectory.calcHeadingPoint().getY());
+        gl.glVertex2d(fl.getPos().getX() + trajectory.calcHeadingPoint().getX(),fl.getPos().getY() + trajectory.calcHeadingPoint().getY());
+        gl.glVertex2d(bl.getPos().getX() + trajectory.calcHeadingPoint().getX(),bl.getPos().getY() + trajectory.calcHeadingPoint().getY());
+        gl.glVertex2d(bl.getPos().getX() + trajectory.calcHeadingPoint().getX(),bl.getPos().getY() + trajectory.calcHeadingPoint().getY());
+        gl.glVertex2d(br.getPos().getX() + trajectory.calcHeadingPoint().getX(),br.getPos().getY() + trajectory.calcHeadingPoint().getY());
+        gl.glVertex2d(br.getPos().getX() + trajectory.calcHeadingPoint().getX(),br.getPos().getY() + trajectory.calcHeadingPoint().getY());
+        gl.glVertex2d(fr.getPos().getX() + trajectory.calcHeadingPoint().getX(),fr.getPos().getY() + trajectory.calcHeadingPoint().getY());
+
         gl.glEnd();
         gl.glFlush();
+
+        /**       \
+         *         \
+         *          \
+         *  b -------a
+         * */
     }
 
     @Override

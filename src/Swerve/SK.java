@@ -13,6 +13,10 @@ public class SK {
     public double getAngleVelocity(){return this.angleVelocity;}
     public Vector getTransform(){return this.transform;}
 
+    public Point getPos (){
+        return this.pos;
+    }
+
     public enum MLoc{
         Front_Right(-45,null),
         Front_Left(45,null),
