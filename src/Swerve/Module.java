@@ -20,7 +20,7 @@ public class Module {
     }
 
     public void Update(){
-        Vector ang = new Vector(this.Mloc.getValue(),angVel/800.0,pos);
+        Vector ang = new Vector(this.Mloc.getValue(),angVel,pos);
         //transform.setPos(getPos());
         fvec= Vector.add(ang,transform);
     }
