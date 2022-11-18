@@ -27,7 +27,7 @@ public class FrameSK implements GLEventListener {
 
     }
 
-    public static final double direction = 90;
+    public static final double direction = 30;
     public static final double magnitude = 0.3; //needs to be number from 0 to 1
     public static final double angularVelocity = 45;
 

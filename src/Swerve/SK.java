@@ -18,10 +18,10 @@ public class SK {
     }
 
     public enum MLoc{
-        Front_Right(0,null),
-        Front_Left(0,null),
-        Back_Right (0,null),
-        Back_Left(0,null),
+        Front_Right(-45,null),
+        Front_Left(45,null),
+        Back_Right (-135,null),
+        Back_Left(-225,null),
         ;
         private double value;
         private Module module;
