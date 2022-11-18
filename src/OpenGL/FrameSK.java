@@ -14,7 +14,6 @@ import javax.media.opengl.awt.GLCanvas;
 import javax.swing.*;
 
 public class FrameSK implements GLEventListener {
-    public static boolean a = false;
 
     public static final JFrame frame = new JFrame("Swerve Kinematics Demo");
     public static GLCanvas gc;
@@ -54,6 +53,13 @@ public class FrameSK implements GLEventListener {
         Module bl = new Module(-0.1,-0.1,MLoc.Back_Left);
 
         SK chassis = new SK();
+
+        MLoc.Front_Right.setValue(new Vector(chassis.getPos(),fr.getPos()).getDirection() - 90);
+        MLoc.Front_Left.setValue(new Vector(chassis.getPos(),fl.getPos()).getDirection() - 90);
+        MLoc.Back_Right.setValue(new Vector(chassis.getPos(),br.getPos()).getDirection() - 90);
+        MLoc.Back_Left.setValue(new Vector(chassis.getPos(),bl.getPos()).getDirection() - 90);
+
+
 
         chassis.setTransform(new Vector(direction,magnitude));
         chassis.setAngleVelocity(angularVelocity);
@@ -104,7 +110,7 @@ public class FrameSK implements GLEventListener {
         //3 sec
         //trajectory painting
         double angle = (angularVelocity * 5) % 360; //velocity * time
-        Vector trajectory = new Vector(direction, magnitude, chassis.getPos());
+        Vector trajectory = new Vector(direction, magnitude * 1.3, chassis.getPos());
 
         gl.glColor3f(0.9f,0f,0.8f);
         gl.glVertex2d(0,0);
@@ -149,20 +155,6 @@ public class FrameSK implements GLEventListener {
         //paint the second red chassis
 
         gl.glColor3f( 1.0f,0.0f,0.0f );
-        while (!a){
-
-            System.out.println("fr " + fr.getPos().toString());
-            System.out.println("fl " + fl.getPos().toString());
-            System.out.println("br " + br.getPos().toString());
-            System.out.println("bl " + bl.getPos().toString());
-
-
-            System.out.println("fr " + rotationTrajectoryFR.calcHeadingPoint());
-            System.out.println("fl " + rotationTrajectoryFL.calcHeadingPoint());
-            System.out.println("br " + rotationTrajectoryBR.calcHeadingPoint());
-            System.out.println("bl " + rotationTrajectoryBL.calcHeadingPoint());
-            a = true;
-        }
 
         gl.glVertex2d(rotationTrajectoryFR.calcHeadingPoint().getX(),rotationTrajectoryFR.calcHeadingPoint().getY());
         gl.glVertex2d(rotationTrajectoryFL.calcHeadingPoint().getX(),rotationTrajectoryFL.calcHeadingPoint().getY());
@@ -175,7 +167,6 @@ public class FrameSK implements GLEventListener {
 
         gl.glVertex2d(rotationTrajectoryBR.calcHeadingPoint().getX(),rotationTrajectoryBR.calcHeadingPoint().getY());
         gl.glVertex2d(rotationTrajectoryFR.calcHeadingPoint().getX(),rotationTrajectoryFR.calcHeadingPoint().getY());
-
 
         gl.glEnd();
         gl.glFlush();

@@ -18,10 +18,10 @@ public class SK {
     }
 
     public enum MLoc{
-        Front_Right(-45,null),
-        Front_Left(45,null),
-        Back_Right (-135,null),
-        Back_Left(-225,null),
+        Front_Right(0,null),
+        Front_Left(0,null),
+        Back_Right (0,null),
+        Back_Left(0,null),
         ;
         private double value;
         private Module module;
@@ -31,6 +31,8 @@ public class SK {
         public double getValue() {return value;}
         public Module getModule() {return module;}
         public void setModule(Module module) {this.module = module;}
+        public void setValue(double value) {this.value = value;}
+
     }
     public SK(){
         pos=new Point(0,0);
