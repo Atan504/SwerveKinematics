@@ -52,4 +52,18 @@ public class Vector {//all the code is self-explanatory
     public void setMagnitude(double magnitude) {this.magnitude = magnitude;}
     public Point getPos(){return pos;}
     public void setPos(Point pos){this.pos=pos;}
+
+
+    @Override
+    public String toString() {
+        return "Vector{" +
+                "direction=" + direction +
+                ", magnitude=" + magnitude +
+                ", pos=" + pos.toString() +
+                '}';
+    }
+
+
+
+
 }

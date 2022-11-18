@@ -14,6 +14,8 @@ import javax.media.opengl.awt.GLCanvas;
 import javax.swing.*;
 
 public class FrameSK implements GLEventListener {
+    public static boolean a = false;
+
     public static final JFrame frame = new JFrame("Swerve Kinematics Demo");
     public static GLCanvas gc;
     @Override
@@ -70,6 +72,7 @@ public class FrameSK implements GLEventListener {
 
 
         gl.glColor3f( 0.0f,1.0f,1.0f );
+
         gl.glVertex2d(fr.getPos().getX(),fr.getPos().getY());
         gl.glVertex2d(fr.getFvec().calcHeadingPoint().getX(),fr.getFvec().calcHeadingPoint().getY());
 
@@ -100,33 +103,83 @@ public class FrameSK implements GLEventListener {
 
         //3 sec
         //trajectory painting
-        double angle = angularVelocity * 5;
-        angle = 30;
+        double angle = (angularVelocity * 5) % 360; //velocity * time
         Vector trajectory = new Vector(direction, magnitude, chassis.getPos());
 
         gl.glColor3f(0.9f,0f,0.8f);
         gl.glVertex2d(0,0);
         gl.glVertex2d(trajectory.calcHeadingPoint().getX(),trajectory.calcHeadingPoint().getY());
 
+
         //red chassis
+        Vector rotationTrajectoryFR;
+        Vector rotationTrajectoryFL;
+        Vector rotationTrajectoryBR;
+        Vector rotationTrajectoryBL;
+
         gl.glColor3f( 1.0f,0.0f,0.0f );
-        gl.glVertex2d(fr.getPos().getX() + trajectory.calcHeadingPoint().getX(),fr.getPos().getY() + trajectory.calcHeadingPoint().getY());
-        gl.glVertex2d(fl.getPos().getX() + trajectory.calcHeadingPoint().getX(),fl.getPos().getY() + trajectory.calcHeadingPoint().getY());
-        gl.glVertex2d(fl.getPos().getX() + trajectory.calcHeadingPoint().getX(),fl.getPos().getY() + trajectory.calcHeadingPoint().getY());
-        gl.glVertex2d(bl.getPos().getX() + trajectory.calcHeadingPoint().getX(),bl.getPos().getY() + trajectory.calcHeadingPoint().getY());
-        gl.glVertex2d(bl.getPos().getX() + trajectory.calcHeadingPoint().getX(),bl.getPos().getY() + trajectory.calcHeadingPoint().getY());
-        gl.glVertex2d(br.getPos().getX() + trajectory.calcHeadingPoint().getX(),br.getPos().getY() + trajectory.calcHeadingPoint().getY());
-        gl.glVertex2d(br.getPos().getX() + trajectory.calcHeadingPoint().getX(),br.getPos().getY() + trajectory.calcHeadingPoint().getY());
-        gl.glVertex2d(fr.getPos().getX() + trajectory.calcHeadingPoint().getX(),fr.getPos().getY() + trajectory.calcHeadingPoint().getY());
+
+        //fr rotation trajectory
+        rotationTrajectoryFR = new Vector(
+                trajectory.calcHeadingPoint()
+                , new Point(fr.getPos().getX() + trajectory.calcHeadingPoint().getX()
+                    ,fr.getPos().getY() + trajectory.calcHeadingPoint().getY()));
+        rotationTrajectoryFR.setDirection(rotationTrajectoryFR.getDirection() - angle);
+
+        //fl rotation trajectory
+
+        rotationTrajectoryFL = new Vector(
+                trajectory.calcHeadingPoint()
+                , new Point(fl.getPos().getX() + trajectory.calcHeadingPoint().getX()
+                    ,fl.getPos().getY() + trajectory.calcHeadingPoint().getY()));
+        rotationTrajectoryFL.setDirection(rotationTrajectoryFL.getDirection() - angle);
+        //br rotation trajectory
+        rotationTrajectoryBR = new Vector(
+                trajectory.calcHeadingPoint()
+                , new Point(br.getPos().getX() + trajectory.calcHeadingPoint().getX()
+                    ,br.getPos().getY() + trajectory.calcHeadingPoint().getY()));
+        rotationTrajectoryBR.setDirection(rotationTrajectoryBR.getDirection() - angle);
+        //bl rotation trajectory
+
+        rotationTrajectoryBL = new Vector(trajectory.calcHeadingPoint()
+                , new Point(bl.getPos().getX() + trajectory.calcHeadingPoint().getX()
+                    ,bl.getPos().getY() + trajectory.calcHeadingPoint().getY() ));
+        rotationTrajectoryBL.setDirection(rotationTrajectoryBL.getDirection() - angle);
+
+        //paint the second red chassis
+
+        gl.glColor3f( 1.0f,0.0f,0.0f );
+        while (!a){
+
+            System.out.println("fr " + fr.getPos().toString());
+            System.out.println("fl " + fl.getPos().toString());
+            System.out.println("br " + br.getPos().toString());
+            System.out.println("bl " + bl.getPos().toString());
+
+
+            System.out.println("fr " + rotationTrajectoryFR.calcHeadingPoint());
+            System.out.println("fl " + rotationTrajectoryFL.calcHeadingPoint());
+            System.out.println("br " + rotationTrajectoryBR.calcHeadingPoint());
+            System.out.println("bl " + rotationTrajectoryBL.calcHeadingPoint());
+            a = true;
+        }
+
+        gl.glVertex2d(rotationTrajectoryFR.calcHeadingPoint().getX(),rotationTrajectoryFR.calcHeadingPoint().getY());
+        gl.glVertex2d(rotationTrajectoryFL.calcHeadingPoint().getX(),rotationTrajectoryFL.calcHeadingPoint().getY());
+
+        gl.glVertex2d(rotationTrajectoryFL.calcHeadingPoint().getX(),rotationTrajectoryFL.calcHeadingPoint().getY());
+        gl.glVertex2d(rotationTrajectoryBL.calcHeadingPoint().getX(),rotationTrajectoryBL.calcHeadingPoint().getY());
+
+        gl.glVertex2d(rotationTrajectoryBL.calcHeadingPoint().getX(),rotationTrajectoryBL.calcHeadingPoint().getY());
+        gl.glVertex2d(rotationTrajectoryBR.calcHeadingPoint().getX(),rotationTrajectoryBR.calcHeadingPoint().getY());
+
+        gl.glVertex2d(rotationTrajectoryBR.calcHeadingPoint().getX(),rotationTrajectoryBR.calcHeadingPoint().getY());
+        gl.glVertex2d(rotationTrajectoryFR.calcHeadingPoint().getX(),rotationTrajectoryFR.calcHeadingPoint().getY());
+
 
         gl.glEnd();
         gl.glFlush();
 
-        /**       \
-         *         \
-         *          \
-         *  b -------a
-         * */
     }
 
     @Override
