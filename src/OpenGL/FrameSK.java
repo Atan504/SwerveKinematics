@@ -122,7 +122,8 @@ public class FrameSK implements GLEventListener {
         gl.glEnd();
         gl.glFlush();
 
-        /**       \
+        /**
+         *        \
          *         \
          *          \
          *  b -------a
