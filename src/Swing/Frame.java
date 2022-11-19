@@ -7,6 +7,8 @@ import common.Vector;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Frame {
 
@@ -20,17 +22,27 @@ public class Frame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.setTitle("Swerve Kinematics");
-        frame.setResizable(false);
+        frame.setResizable(true);
         frame.add(new panel(800,800));
     }
     public void Update(){
-
 
     }
 
     public static void main(String[] args) {
         Frame frame = new Frame();
         frame.Update();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                frame.Update();
+                System.out.println("frame updated");
+            }
+        };
+        Timer t = new Timer();
+        t.scheduleAtFixedRate(task,1,100);
+
+
     }
 }
 class panel extends JPanel {
