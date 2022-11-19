@@ -52,9 +52,9 @@ class panel extends JPanel {
     Module bl;
     SK chassis;
 
-    public static final double direction = 90;
+    public static final double direction = 45;
     public static final double magnitude = 100;
-    public static final double angularVelocity = 45;
+    public static final double angularVelocity = 30;
     public  static int w,h;
     public panel(int w,int h) {
         setBorder(BorderFactory.createLineBorder(Color.black));
@@ -187,7 +187,7 @@ class panel extends JPanel {
         double angle = angularVelocity * 5; //todo add a global double time; that changes trajectoey and so
         Vector trajectory = new Vector(direction, magnitude * 3, chassis.getPos());
 
-        g.setColor(new Color(100,200,100));
+        g.setColor(new Color(200, 153,100));
         drawLine(g,new Point(0,0), new Point(trajectory.calcHeadingPoint().getX(), trajectory.calcHeadingPoint().getY()));
 
         drawChassis(g,trajectory.calcHeadingPoint(), angle % 360);
@@ -198,6 +198,11 @@ class panel extends JPanel {
         chassis.setAngleVelocity(angularVelocity);
         chassis.Update();
 
+        //3316
+        drawDebugLine(g,SK.MLoc.Front_Right,chassis);
+        drawDebugLine(g,SK.MLoc.Front_Left,chassis);
+        drawDebugLine(g,SK.MLoc.Back_Right,chassis);
+        drawDebugLine(g,SK.MLoc.Back_Left,chassis);
 
         g.setColor(new Color(0,255,0));
         drawLine(g,fr.getPos(),fr.getFvec().calcHeadingPoint());
@@ -205,11 +210,6 @@ class panel extends JPanel {
         drawLine(g,br.getPos(),br.getFvec().calcHeadingPoint());
         drawLine(g,bl.getPos(),bl.getFvec().calcHeadingPoint());
 
-        //Dbug
-        drawDebugLine(g,SK.MLoc.Front_Right,chassis);
-        drawDebugLine(g,SK.MLoc.Front_Left,chassis);
-        drawDebugLine(g,SK.MLoc.Back_Right,chassis);
-        drawDebugLine(g,SK.MLoc.Back_Left,chassis);
     }
 }
 
