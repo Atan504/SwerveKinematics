@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9618487b-d1b2-46df-88fa-4b03176f9793" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/robot/src/main/java/SwervweKin/Swing/Panel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/robot/src/main/java/edu/greenblitz/robot/subsystems/swerve/Module.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/robot/src/main/java/utils/PIDObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/robot/src/main/java/utils/SmartJoystick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot/.idea/modules/Rapid-Reee-2022.iml" beforeDir="false" afterPath="$PROJECT_DIR$/robot/src/main/java/SwervweKin/robot/.idea/modules/Rapid-Reee-2022.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/robot/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot/src/main/java/edu/greenblitz/robot/OI.java" beforeDir="false" afterPath="$PROJECT_DIR$/robot/src/main/java/edu/greenblitz/robot/OI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Swing/Frame.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +40,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/robot" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -65,8 +55,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
-    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+    <property name="jdk.selected.JAVA_MODULE" value="11" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/robot/src/main/java/SwervweKin/Swing" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -74,7 +68,7 @@
       <recent name="D:\Git\SwerveKinematics" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Frame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SwervweKin.Swing.Frame" />
       <module name="robot.main" />
@@ -88,9 +82,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="temurin-11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="SwervweKin.robot.src.main.java.edu.greenblitz.robot.Main" />
+      <module name="robot.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SwervweKin.Swing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Frame" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Frame" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -115,6 +129,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/robot" />
+    </ignored-roots>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
