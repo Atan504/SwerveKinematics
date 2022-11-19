@@ -54,7 +54,7 @@ class panel extends JPanel {
 
     public static final double direction = 45;
     public static final double magnitude = 100;
-    public static final double angularVelocity = 30;
+    public static final double angularVelocity = 45;
     public  static int w,h;
     public panel(int w,int h) {
         setBorder(BorderFactory.createLineBorder(Color.black));
