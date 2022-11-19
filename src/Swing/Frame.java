@@ -6,6 +6,7 @@ import common.Point;
 import common.Vector;
 
 import javax.swing.*;
+import javax.swing.plaf.PanelUI;
 import java.awt.*;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -13,9 +14,8 @@ import java.util.TimerTask;
 public class Frame {
 
 
-    public static JFrame frame = new JFrame();
-    public static JPanel panel = new JPanel();
-
+    public JFrame frame = new JFrame();
+    public static panel panel =new panel(800,800);
     public Frame(){
 
         frame.setSize(800,800);
@@ -23,10 +23,10 @@ public class Frame {
         frame.setVisible(true);
         frame.setTitle("Swerve Kinematics");
         frame.setResizable(true);
-        frame.add(new panel(800,800));
+        frame.add(panel);
     }
     public void Update(){
-
+        frame.repaint();
     }
 
     public static void main(String[] args) {
@@ -34,9 +34,9 @@ public class Frame {
         frame.Update();
         TimerTask task = new TimerTask() {
             @Override
-            public void run() {
+            public void run(){
+                panel.setSize(frame.frame.getWidth(),frame.frame.getHeight());
                 frame.Update();
-                System.out.println("frame updated");
             }
         };
         Timer t = new Timer();
@@ -70,7 +70,10 @@ class panel extends JPanel {
 
 
 
-
+    public void setSize(int w,int h){
+        this.w=w;
+        this.h=h;
+    }
 
     public Dimension getPreferredSize() {
         return new Dimension(250,200);
@@ -168,12 +171,16 @@ class panel extends JPanel {
         drawLine(g, rotationTrajectoryBL.calcHeadingPoint(), rotationTrajectoryBR.calcHeadingPoint());
         drawLine(g, rotationTrajectoryBR.calcHeadingPoint(),rotationTrajectoryFR.calcHeadingPoint());
     }
-
+    public void drawGrid(Graphics g){
+        g.setColor(new Color(255,255,255));
+        g.drawLine(0,h/2,w,h/2);
+        g.drawLine(w/2,0,w/2,h);
+    }
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
 
-
+        drawGrid(g);
         drawChassis(g);
         //3 sec
         //trajectory painting
