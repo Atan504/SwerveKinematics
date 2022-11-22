@@ -5,70 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3027e373-78d7-4a3c-947c-7d9f6f95e7c4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/SwerveKinematics.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixed/robot/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - Delete me.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/7.3.3/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/7.3.3/checksums/md5-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/7.3.3/checksums/sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/7.3.3/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/7.3.3/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/7.3.3/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/7.3.3/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/7.3.3/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/7.3.3/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/7.3.3/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/7.3.3/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/file-system.probe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/workspace-id.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.gradle/workspace-id.txt.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/.wpilib/wpilib_preferences.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/scripts/pre-push" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/scripts/prepare-commit-message" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/scripts/prepare-commit-message.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/scripts/setup_hooks" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/src/main/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/src/main/OI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/src/main/Robot.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/src/main/RobotMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/src/main/common/Point.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/src/main/common/Vector.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/src/main/subsystems/swerve/Module.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/src/main/subsystems/swerve/SwervweKin/OpenGL/FrameSK.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/src/main/subsystems/swerve/SwervweKin/Swerve/SwerveKinematics.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/src/main/subsystems/swerve/SwervweKin/Swing/Frame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/src/main/subsystems/swerve/SwervweKin/Swing/Panel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/src/main/subsystems/swerve/SwervweKin/Swing/Swing.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/src/main/utils/PIDObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/src/main/utils/SmartJoystick.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/vendordeps/Phoenix.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/vendordeps/REVLib.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/vendordeps/WPILibNewCommands.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot - change to robot/vendordeps/WPILibOldCommands.json" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/OI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Robot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/RobotMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RobotMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/common/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/common/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Vector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/subsystems/swerve/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/subsystems/swerve/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/subsystems/swerve/SwervweKin/OpenGL/FrameSK.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/subsystems/swerve/SwervweKin/OpenGL/FrameSK.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/subsystems/swerve/SwervweKin/Swerve/SwerveKinematics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/subsystems/swerve/SwervweKin/Swerve/SwerveKinematics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/subsystems/swerve/SwervweKin/Swing/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/subsystems/swerve/SwervweKin/Swing/Frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/subsystems/swerve/SwervweKin/Swing/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/subsystems/swerve/SwervweKin/Swing/Panel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/subsystems/swerve/SwervweKin/Swing/Swing.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/utils/PIDObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/PIDObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/utils/SmartJoystick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/SmartJoystick.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,9 +57,19 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/noamr/Documents/git/SwerveKinematics"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/noamr/Documents/git/SwerveKinematics",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gant"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\noamr\Documents\git\SwerveKinematics\src" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

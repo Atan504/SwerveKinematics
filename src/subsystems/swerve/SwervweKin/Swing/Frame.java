@@ -1,4 +1,4 @@
-package SwervweKin.Swing;
+package subsystems.swerve.SwervweKin.Swing;
 
 import javax.swing.*;
 import java.util.Timer;

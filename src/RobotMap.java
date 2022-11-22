@@ -1,6 +1,3 @@
-package edu.greenblitz.robot;
-
-
 import edu.greenblitz.robot.subsystems.swerve.Module;
 import edu.wpi.first.math.geometry.Translation2d;
 import utils.PIDObject;

@@ -1,9 +1,9 @@
-package SwervweKin.Swerve;
+package subsystems.swerve.SwervweKin.Swerve;
 
 import SwervweKin.common.Point;
 import SwervweKin.common.Vector;
 import edu.greenblitz.robot.RobotMap;
-import edu.greenblitz.robot.subsystems.swerve.Module;
+import subsystems.swerve.Module;
 import edu.wpi.first.math.geometry.Translation2d;
 
 public class SwerveKinematics {

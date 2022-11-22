@@ -1,6 +1,3 @@
-package edu.greenblitz.robot;
-
-
 import utils.SmartJoystick;
 
 public class OI {

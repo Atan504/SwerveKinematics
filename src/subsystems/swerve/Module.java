@@ -1,4 +1,4 @@
-package edu.greenblitz.robot.subsystems.swerve;
+package subsystems.swerve;
 
 import SwervweKin.common.Point;
 import SwervweKin.common.Vector;

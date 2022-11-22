@@ -1,10 +1,10 @@
-package SwervweKin.Swing;
+package subsystems.swerve.SwervweKin.Swing;
 
-import SwervweKin.Swerve.SwerveKinematics;
+import subsystems.swerve.SwervweKin.Swerve.SwerveKinematics;
 import SwervweKin.common.Point;
 import SwervweKin.common.Vector;
 import edu.greenblitz.robot.RobotMap;
-import edu.greenblitz.robot.subsystems.swerve.Module;
+import subsystems.swerve.Module;
 
 import javax.swing.*;
 import java.awt.*;
