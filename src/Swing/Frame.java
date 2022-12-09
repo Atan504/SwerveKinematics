@@ -15,18 +15,24 @@ public class Frame {
 
 
     public JFrame frame = new JFrame();
-    public static panel panel =new panel(800,800);
+    public static panel panel =new panel(200,200);
     public Frame(){
-
         frame.setSize(800,800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.setTitle("Swerve Kinematics");
         frame.setResizable(true);
+        frame.setLayout(new GridLayout(2,2));
+        frame.add(new JLabel());
+        frame.add(new JLabel());
+        frame.add(new JLabel());
         frame.add(panel);
     }
     public void Update(){
+//        frame.setVisible(false);
         frame.repaint();
+        frame.setVisible(true);
+
     }
 
     public static void main(String[] args) {
@@ -35,7 +41,7 @@ public class Frame {
         TimerTask task = new TimerTask() {
             @Override
             public void run(){
-                panel.setSize(frame.frame.getWidth(),frame.frame.getHeight());
+                panel.setSize(frame.frame.getWidth()/2,frame.frame.getHeight()/2);
                 frame.Update();
             }
         };
@@ -52,9 +58,11 @@ class panel extends JPanel {
     Module bl;
     SK chassis;
 
-    public static final double direction = 45;
-    public static final double magnitude = 100;
-    public static final double angularVelocity = 30;
+    public static double direction = 90;
+    public static double magnitude = 100;
+    public static double angularVelocity = 0;
+    public static double currentAngle =45;
+
     public  static int w,h;
     public panel(int w,int h) {
         setBorder(BorderFactory.createLineBorder(Color.black));
@@ -66,6 +74,7 @@ class panel extends JPanel {
         this.br = new Module(50,-50, SK.MLoc.Back_Right);
         this.bl = new Module(-50,-50, SK.MLoc.Back_Left);
         this.chassis = new SK();
+        chassis.setPos(new Point(100,100));
     }
 
 
@@ -83,34 +92,25 @@ class panel extends JPanel {
 
     }
     public void drawDebugLine(Graphics g,SK.MLoc  mloc,SK chassis){
+
+        Vector trajectory = new Vector(currentAngle, 0, chassis.getPos());
+
+        Vector rotationTrajectory;
+
+        //fr
+        rotationTrajectory = new Vector(trajectory.calcHeadingPoint()
+                , Point.add(mloc.getModule().getPos(),trajectory.calcHeadingPoint()));
+        rotationTrajectory.setDirection(rotationTrajectory.getDirection() - currentAngle);
+
         g.setColor(new Color(0,0,255));
         Vector tran = new Vector(chassis.getTransform());
-        Vector ang = new Vector(mloc.getValue(),angularVelocity,mloc.getModule().getPos());
+        Vector ang = new Vector(mloc.getValue(),angularVelocity,rotationTrajectory.calcHeadingPoint());
         tran.setPos(ang.calcHeadingPoint());
         drawLine(g,tran.getPos(),tran.calcHeadingPoint());
         g.setColor(new Color(125,0,125));
         drawLine(g,ang.getPos(),ang.calcHeadingPoint());
     }
-    public void drawChassis (Graphics g){
 
-        g.setColor(new Color(255,0,0));
-        drawLine(g,fr.getPos(),fl.getPos());
-        drawLine(g,fl.getPos(),bl.getPos());
-        drawLine(g,bl.getPos(),br.getPos());
-        drawLine(g,br.getPos(),fr.getPos());
-    }
-
-    public void drawChassis (Graphics g, Point center){
-
-        double x= center.getX();
-        double y = center.getY();
-
-        g.setColor(new Color(255,0,0));
-        drawLine(g, new Point(fr.getPos().getX() + x, fr.getPos().getY() + y),new Point(fl.getPos().getX() + x, fl.getPos().getY() + y));
-        drawLine(g,new Point(fl.getPos().getX() + x, fl.getPos().getY() + y),new Point(bl.getPos().getX() + x, bl.getPos().getY() + y));
-        drawLine(g,new Point(bl.getPos().getX() + x, bl.getPos().getY() + y),new Point(br.getPos().getX() + x, br.getPos().getY() + y));
-        drawLine(g,new Point(br.getPos().getX() + x, br.getPos().getY() + y),new Point(fr.getPos().getX() + x, fr.getPos().getY() + y));
-    }
     /**
      *         gl.glVertex2d(rotationTrajectoryFR.calcHeadingPoint().getX(),rotationTrajectoryFR.calcHeadingPoint().getY());
      *         gl.glVertex2d(rotationTrajectoryFL.calcHeadingPoint().getX(),rotationTrajectoryFL.calcHeadingPoint().getY());
@@ -125,12 +125,9 @@ class panel extends JPanel {
      *         gl.glVertex2d(rotationTrajectoryFR.calcHeadingPoint().getX(),rotationTrajectoryFR.calcHeadingPoint().getY());
      * */
 
-    public void drawChassis (Graphics g, Point center, double angle){
+    public void drawChassis (Graphics g){
 
-        double x= center.getX();
-        double y = center.getY();
-
-        Vector trajectory = new Vector(direction, magnitude * 3, chassis.getPos());
+        Vector trajectory = new Vector(currentAngle, 0, chassis.getPos());
 
         Vector rotationTrajectoryFR;
         Vector rotationTrajectoryFL;
@@ -138,31 +135,22 @@ class panel extends JPanel {
         Vector rotationTrajectoryBL;
 
         //fr
-        rotationTrajectoryFR = new Vector(
-                trajectory.calcHeadingPoint()
-                , new Point(fr.getPos().getX() + trajectory.calcHeadingPoint().getX()
-                ,fr.getPos().getY() + trajectory.calcHeadingPoint().getY()));
-        rotationTrajectoryFR.setDirection(rotationTrajectoryFR.getDirection() - angle);
+        rotationTrajectoryFR = new Vector(trajectory.calcHeadingPoint()
+                , Point.add(fr.getPos(),trajectory.calcHeadingPoint()));
+        rotationTrajectoryFR.setDirection(rotationTrajectoryFR.getDirection() - currentAngle);
         //fl
-        rotationTrajectoryFL = new Vector(
-                trajectory.calcHeadingPoint()
-                , new Point(fl.getPos().getX() + trajectory.calcHeadingPoint().getX()
-                ,fl.getPos().getY() + trajectory.calcHeadingPoint().getY()));
-        rotationTrajectoryFL.setDirection(rotationTrajectoryFL.getDirection() - angle);
+        rotationTrajectoryFL = new Vector(trajectory.calcHeadingPoint()
+                , Point.add(fl.getPos(),trajectory.calcHeadingPoint()));
+        rotationTrajectoryFL.setDirection(rotationTrajectoryFL.getDirection() - currentAngle);
         //br rotation trajectory
-        rotationTrajectoryBR = new Vector(
-                trajectory.calcHeadingPoint()
-                , new Point(br.getPos().getX() + trajectory.calcHeadingPoint().getX()
-                ,br.getPos().getY() + trajectory.calcHeadingPoint().getY()));
-        rotationTrajectoryBR.setDirection(rotationTrajectoryBR.getDirection() - angle);
+        rotationTrajectoryBR = new Vector(trajectory.calcHeadingPoint()
+                , Point.add(br.getPos(),trajectory.calcHeadingPoint()));
+        rotationTrajectoryBR.setDirection(rotationTrajectoryBR.getDirection() - currentAngle);
         //bl rotation trajectory
 
         rotationTrajectoryBL = new Vector(trajectory.calcHeadingPoint()
-                , new Point(bl.getPos().getX() + trajectory.calcHeadingPoint().getX()
-                ,bl.getPos().getY() + trajectory.calcHeadingPoint().getY() ));
-        rotationTrajectoryBL.setDirection(rotationTrajectoryBL.getDirection() - angle);
-
-
+                , Point.add(bl.getPos(),trajectory.calcHeadingPoint()));
+        rotationTrajectoryBL.setDirection(rotationTrajectoryBL.getDirection() - currentAngle);
 
         g.setColor(new Color(255,0,0));
 
@@ -170,6 +158,21 @@ class panel extends JPanel {
         drawLine(g, rotationTrajectoryFL.calcHeadingPoint(), rotationTrajectoryBL.calcHeadingPoint());
         drawLine(g, rotationTrajectoryBL.calcHeadingPoint(), rotationTrajectoryBR.calcHeadingPoint());
         drawLine(g, rotationTrajectoryBR.calcHeadingPoint(),rotationTrajectoryFR.calcHeadingPoint());
+
+
+
+
+        //3316
+        drawDebugLine(g,SK.MLoc.Front_Right,chassis);
+        drawDebugLine(g,SK.MLoc.Front_Left,chassis);
+        drawDebugLine(g,SK.MLoc.Back_Right,chassis);
+        drawDebugLine(g,SK.MLoc.Back_Left,chassis);
+
+        g.setColor(new Color(0,255,0));
+        drawLine(g,rotationTrajectoryFR.calcHeadingPoint(),Vector.add(rotationTrajectoryFR,fr.getFvec()).calcHeadingPoint());
+        drawLine(g,rotationTrajectoryFL.calcHeadingPoint(),Vector.add(rotationTrajectoryFL,fl.getFvec()).calcHeadingPoint());
+        drawLine(g,rotationTrajectoryBR.calcHeadingPoint(),Vector.add(rotationTrajectoryBR,br.getFvec()).calcHeadingPoint());
+        drawLine(g,rotationTrajectoryBL.calcHeadingPoint(),Vector.add(rotationTrajectoryBL,bl.getFvec()).calcHeadingPoint());
     }
     public void drawGrid(Graphics g){
         g.setColor(new Color(255,255,255));
@@ -181,34 +184,26 @@ class panel extends JPanel {
 
 
         drawGrid(g);
-        drawChassis(g);
+         //TODO get localizer pos and angle
         //3 sec
         //trajectory painting
-        double angle = angularVelocity * 5; //todo add a global double time; that changes trajectoey and so
-        Vector trajectory = new Vector(direction, magnitude * 3, chassis.getPos());
+//        double angle = angularVelocity * 5; //todo add a global double time; that changes trajectoey and so
+//        Vector trajectory = new Vector(direction, magnitude * 3, chassis.getPos());
+//
+//        g.setColor(new Color(200, 153,100));
+//        drawLine(g,new Point(0,0), new Point(trajectory.calcHeadingPoint().getX(), trajectory.calcHeadingPoint().getY()));
+//
+//        drawChassis(g,trajectory.calcHeadingPoint(), angle % 360);
 
-        g.setColor(new Color(200, 153,100));
-        drawLine(g,new Point(0,0), new Point(trajectory.calcHeadingPoint().getX(), trajectory.calcHeadingPoint().getY()));
-
-        drawChassis(g,trajectory.calcHeadingPoint(), angle % 360);
 
 
-
-        chassis.setTransform(new Vector(direction,magnitude));
+        chassis.setTransform(new Vector(direction,magnitude,chassis.getPos()));
         chassis.setAngleVelocity(angularVelocity);
         chassis.Update();
+        drawChassis(g);
+        //summon barkuni to fix bugs
 
-        //3316
-        drawDebugLine(g,SK.MLoc.Front_Right,chassis);
-        drawDebugLine(g,SK.MLoc.Front_Left,chassis);
-        drawDebugLine(g,SK.MLoc.Back_Right,chassis);
-        drawDebugLine(g,SK.MLoc.Back_Left,chassis);
 
-        g.setColor(new Color(0,255,0));
-        drawLine(g,fr.getPos(),fr.getFvec().calcHeadingPoint());
-        drawLine(g,fl.getPos(),fl.getFvec().calcHeadingPoint());
-        drawLine(g,br.getPos(),br.getFvec().calcHeadingPoint());
-        drawLine(g,bl.getPos(),bl.getFvec().calcHeadingPoint());
 
     }
 }

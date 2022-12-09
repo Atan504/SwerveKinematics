@@ -13,9 +13,8 @@ public class SK {
     public double getAngleVelocity(){return this.angleVelocity;}
     public Vector getTransform(){return this.transform;}
 
-    public Point getPos (){
-        return this.pos;
-    }
+    public Point getPos (){return this.pos;}
+    public void  setPos (Point pos){this.pos=pos;}
 
     public enum MLoc{
         Front_Right(-45,null),
@@ -37,16 +36,11 @@ public class SK {
     public SK(){
         pos=new Point(0,0);
     }
-    public void Update(){
+    public void Update() {
         Module fr = MLoc.Front_Right.getModule();
-        Module fl =MLoc.Front_Left.getModule();
-        Module br =MLoc.Back_Right.getModule();
-        Module bl =MLoc.Back_Left.getModule();
-        fr.setPos(Point.add(fr.getPos(),pos));
-        fl.setPos(Point.add(fl.getPos(),pos));
-        br.setPos(Point.add(br.getPos(),pos));
-        bl.setPos(Point.add(bl.getPos(),pos));
-
+        Module fl = MLoc.Front_Left.getModule();
+        Module br = MLoc.Back_Right.getModule();
+        Module bl = MLoc.Back_Left.getModule();
         fr.setTransform(transform);
         fl.setTransform(transform);
         br.setTransform(transform);
@@ -62,5 +56,4 @@ public class SK {
         br.Update();
         bl.Update();
     }
-
 }
